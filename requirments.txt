@@ -1,0 +1,9 @@
+pymongo
+kafka
+confluent_kafka
+flask
+textblob
+Neo4j
+Json
+NLTK
+Requests

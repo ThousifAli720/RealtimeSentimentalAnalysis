@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF9C4; /* light yellow */
+            color: #C62828; /* light red */
+            padding: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .section {
+            background-color: #FFEBEE; /* lighter red */
+            padding: 10px;
+            border-radius: 8px;
+        }
+        ul {
+            padding-left: 0;
+            list-style-type: none;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #FFCCBC; /* lighter red */
+            color: #C62828;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        button.following {
+            background-color: #C8E6C9; /* green for following */
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommendations</h1>
+    <div class="container">
+        <div class="section">
+            <h2>You might like to follow:</h2>
+            <ul>
+                {% for user in users %}
+                <li>{{ user.username }} <button class="follow-btn">Follow</button></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Hashtags to follow:</h2>
+            <ul>
+                {% for hashtag in hashtags %}
+                <li>{{ hashtag._id }} <button class="follow-btn">Follow</button></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.follow-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent === "Follow") {
+                    this.textContent = "Following";
+                    this.classList.add('following');
+                } else {
+                    this.textContent = "Follow";
+                    this.classList.remove('following');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

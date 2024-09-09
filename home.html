@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF9C4; /* light yellow */
+            color: #C62828; /* light red */
+            padding: 20px;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #FFCCBC; /* light red border */
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #C62828; /* light red */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #B71C1C; /* darker red */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <form action="" method="post">
+        <textarea name="tweet" maxlength="250"></textarea>
+        <input type="submit" value="Tweet">
+    </form>
+</body>
+</html>
